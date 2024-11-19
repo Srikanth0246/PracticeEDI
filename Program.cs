@@ -83,5 +83,20 @@ namespace ConsoleApp1
             sqlConnection.Close();
             Console.WriteLine("Connection Closed");
         }
+         public static void Delete()
+        {
+            SqlConnection sqlConnection = new SqlConnection(@"server=(localdb)\mssqllocaldb;database=mydb;trusted_connection=yes");
+            sqlConnection.Open();
+            Console.WriteLine("Connection Opened");
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "delete from Product where Id=1";
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.ExecuteNonQuery();
+
+           
+            sqlConnection.Close();
+            Console.WriteLine("Connection Closed");
+        }
         }
 }
